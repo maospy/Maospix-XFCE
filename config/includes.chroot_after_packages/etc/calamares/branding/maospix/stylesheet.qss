@@ -1,0 +1,64 @@
+/* maospix: Calamares oscuro (corre como root, sin el tema GTK del usuario) */
+QWidget {
+    background-color: #0f1524;
+    color: #e2e8f5;
+    selection-background-color: #4fd8e8;
+    selection-color: #0f1524;
+}
+QLabel { background: transparent; }
+
+QLineEdit, QTextEdit, QPlainTextEdit, QSpinBox, QComboBox, QListView, QTreeView, QTableView {
+    background-color: #161f33;
+    color: #e2e8f5;
+    border: 1px solid #26324b;
+    border-radius: 6px;
+    padding: 4px;
+}
+QLineEdit:focus, QComboBox:focus { border: 1px solid #4fd8e8; }
+QComboBox QAbstractItemView { background-color: #161f33; color: #e2e8f5; }
+QHeaderView::section { background-color: #121a2b; color: #96a5c3; border: 0; padding: 4px; }
+
+QPushButton {
+    background-color: #1c2740;
+    color: #e2e8f5;
+    border: 1px solid #26324b;
+    border-radius: 6px;
+    padding: 6px 16px;
+}
+QPushButton:hover   { border: 1px solid #4fd8e8; }
+QPushButton:pressed { background-color: #26324b; }
+QPushButton:disabled { color: #56627e; border-color: #1c2740; }
+
+QRadioButton, QCheckBox { background: transparent; spacing: 8px; }
+
+QProgressBar {
+    background-color: #161f33;
+    border: 1px solid #26324b;
+    border-radius: 6px;
+    text-align: center;
+    color: #e2e8f5;
+}
+QProgressBar::chunk { background-color: #4fd8e8; border-radius: 5px; }
+
+QScrollBar:vertical   { background: #0f1524; width: 10px; }
+QScrollBar::handle:vertical { background: #26324b; border-radius: 5px; min-height: 24px; }
+QScrollBar::add-line, QScrollBar::sub-line { height: 0; width: 0; }
+
+QToolTip { background-color: #161f33; color: #e2e8f5; border: 1px solid #4fd8e8; }
+
+/* Barra lateral: el botón "Acerca de" no se veía (texto oscuro sobre navy) */
+#sidebarApp QPushButton, #sidebarApp QToolButton {
+    background: transparent;
+    color: #96a5c3;
+    border: 0;
+}
+#sidebarApp QPushButton:hover { color: #4fd8e8; }
+
+/* Casillas visibles (antes quedaban invisibles sobre el fondo oscuro) */
+QCheckBox::indicator {
+    width: 16px; height: 16px;
+    border: 1px solid #4fd8e8; border-radius: 3px;
+    background-color: #161f33;
+}
+QCheckBox::indicator:checked { background-color: #4fd8e8; image: none; }
+QCheckBox::indicator:disabled { border-color: #26324b; }

@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=Ventanas maximizadas (maospix)
+Comment=Abre las aplicaciones maximizadas (devilspie2)
+Exec=devilspie2
+OnlyShowIn=XFCE;
+X-XFCE-Autostart-Override=true

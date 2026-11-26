@@ -1,0 +1,16 @@
+# Instalador gráfico
+calamares
+calamares-settings-debian
+# Lo que Calamares/kpmcore usan y no entra con --apt-recommends false:
+# fat32 de la partición EFI (prueba6 falló sin esto), unsquashfs para copiar el sistema,
+# QML para las diapositivas, NTFS para achicar Windows en doble arranque, Qt en español.
+dosfstools
+squashfs-tools
+ntfs-3g
+exfatprogs
+qml6-module-qtquick
+qml6-module-qtquick-window
+qt6-translations-l10n
+efibootmgr
+btrfs-progs
+xfsprogs

@@ -1,0 +1,12 @@
+#!/bin/sh
+# maospix-xfce: reemplaza el de calamares-settings-debian (que escribe "trixie" y solo main).
+# Deja el sistema instalado con los repos de forky: main contrib non-free non-free-firmware.
+CHROOT=$(mount | grep proc | grep calamares | awk '{print $3}' | sed -e "s#/proc##g")
+RELEASE="forky"
+AREAS="main contrib non-free non-free-firmware"
+cat << EOF2 > $CHROOT/etc/apt/sources.list
+deb http://deb.debian.org/debian $RELEASE $AREAS
+deb http://deb.debian.org/debian $RELEASE-updates $AREAS
+deb http://security.debian.org/debian-security/ $RELEASE-security $AREAS
+EOF2
+exit 0

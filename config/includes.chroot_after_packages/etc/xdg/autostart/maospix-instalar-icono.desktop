@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=Ícono "Instalar maospix"
+Exec=/usr/libexec/maospix/instalar-icono
+NoDisplay=true
+StartupNotify=false
+X-GNOME-Autostart-Phase=Initialization

@@ -1,0 +1,18 @@
+#!/bin/sh
+# Pronóstico del tiempo en una ventana flotante (wttr.in, ubicación por IP).
+# Uso: maospix-clima [ciudad]
+LUGAR="${1:-}"
+if [ "${MAOSPIX_CLIMA_DENTRO:-}" != 1 ]; then
+  pgrep -f 'kitty --class maospix-clima' >/dev/null && exit 0
+  MAOSPIX_CLIMA_DENTRO=1 exec kitty --class maospix-clima --title "Clima" \
+    -o initial_window_width=126c -o initial_window_height=42c -o remember_window_size=no \
+    -o background_opacity=0.96 "$0" "$LUGAR"
+fi
+clear
+LUGAR_URL=$(printf '%s' "$LUGAR" | sed 's/ /+/g')
+if ! curl -fsS --max-time 10 -H 'Accept-Language: es' "https://wttr.in/${LUGAR_URL}?lang=es&F&m" 2>/dev/null; then
+  printf '\n  \033[36mSin conexión\033[0m: no se pudo obtener el pronóstico.\n'
+  printf '  Revisá la red (ícono de red arriba a la derecha).\n'
+fi
+printf '\n  \033[2mPresioná una tecla para cerrar…\033[0m'
+stty -icanon -echo 2>/dev/null; dd bs=1 count=1 >/dev/null 2>&1

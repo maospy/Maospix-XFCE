@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Fondos en Imágenes (maospix)
+Comment=Copia los fondos maospix a ~/Imágenes/Fondos la primera vez
+Exec=/usr/libexec/maospix/fondos-usuario
+OnlyShowIn=XFCE;
+NoDisplay=true
+X-XFCE-Autostart-Override=true

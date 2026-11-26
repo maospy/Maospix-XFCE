@@ -1,0 +1,12 @@
+#!/bin/sh
+# Navegador y terminal por defecto: Brave y kitty (XFCE usa x-www-browser / x-terminal-emulator)
+set -e
+update-alternatives --set x-terminal-emulator /usr/bin/kitty
+B=$(update-alternatives --list x-www-browser | grep brave | head -1)
+[ -n "$B" ] && update-alternatives --set x-www-browser "$B"
+# fastfetch al abrir una terminal interactiva (en el paso 4 pasa a fish con el logo maospix)
+grep -q maospix-fastfetch /etc/bash.bashrc || cat >> /etc/bash.bashrc <<'EOS'
+
+# maospix-fastfetch
+case $- in *i*) [ -n "$DISPLAY$WAYLAND_DISPLAY" ] && command -v fastfetch >/dev/null && fastfetch ;; esac
+EOS

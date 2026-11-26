@@ -1,0 +1,13 @@
+#!/bin/sh
+set -e
+if [ "$1" = configure ]; then
+  # fish como shell por defecto de los usuarios nuevos (live-config usa adduser; useradd por si acaso)
+  if grep -q '^#\?DSHELL=' /etc/adduser.conf 2>/dev/null; then
+    sed -i 's|^#\?DSHELL=.*|DSHELL=/usr/bin/fish|' /etc/adduser.conf
+  else
+    echo 'DSHELL=/usr/bin/fish' >> /etc/adduser.conf
+  fi
+  [ -f /etc/default/useradd ] && sed -i 's|^SHELL=.*|SHELL=/usr/bin/fish|' /etc/default/useradd
+  command -v gtk-update-icon-cache >/dev/null && gtk-update-icon-cache -qf /usr/share/icons/Maospix-Papirus-Dark || true
+fi
+exit 0

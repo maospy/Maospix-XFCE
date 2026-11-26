@@ -1,0 +1,7 @@
+#!/bin/sh
+set -e
+if [ "$1" = remove ] || [ "$1" = purge ]; then
+  sed -i 's|^DSHELL=/usr/bin/fish|#DSHELL=/bin/bash|' /etc/adduser.conf 2>/dev/null || true
+  [ -f /etc/default/useradd ] && sed -i 's|^SHELL=/usr/bin/fish|SHELL=/bin/sh|' /etc/default/useradd || true
+fi
+exit 0

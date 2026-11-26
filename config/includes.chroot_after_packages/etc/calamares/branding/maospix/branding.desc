@@ -1,0 +1,41 @@
+# Branding maospix para Calamares (generado por assets/gen-calamares.py + este archivo)
+---
+componentName:  maospix
+
+welcomeStyleCalamares:   true
+welcomeExpandingLogo:    true
+
+windowExpanding:    normal
+windowSize:         900px,620px
+windowPlacement:    center
+
+strings:
+    productName:         maospix XFCE
+    shortProductName:    maospix
+    version:             "0.1"
+    shortVersion:        "0.1"
+    versionedName:       maospix XFCE (Debian Forky)
+    shortVersionedName:  maospix XFCE
+    bootloaderEntryName: maospix
+    productUrl:          https://github.com/maospy/Maospix-XFCE
+    supportUrl:          https://github.com/maospy/Maospix-XFCE/issues
+    knownIssuesUrl:      https://github.com/maospy/Maospix-XFCE/issues
+    releaseNotesUrl:     https://github.com/maospy/Maospix-XFCE
+    donateUrl:           https://github.com/maospy
+
+sidebar: widget
+navigation: widget
+
+images:
+    productLogo:         "maospix-logo.png"
+    productIcon:         "maospix-logo.png"
+    productWelcome:      "welcome.png"
+
+slideshow:      "show.qml"
+slideshowAPI:   2
+
+style:
+   SidebarBackground:        "#0f1524"
+   SidebarText:              "#e2e8f5"
+   SidebarTextCurrent:       "#0f1524"
+   SidebarBackgroundCurrent: "#4fd8e8"

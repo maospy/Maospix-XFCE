@@ -1,0 +1,14 @@
+Package: maospix-xfce-settings
+Version: @VERSION@
+Architecture: all
+Maintainer: maospy <109636620+maospy@users.noreply.github.com>
+Installed-Size: @SIZE@
+Depends: papirus-icon-theme, bibata-cursor-theme, fonts-inter, fonts-jetbrains-mono, fish, fastfetch, kitty, xfce4-whiskermenu-plugin, xfce4-docklike-plugin, xfce4-pulseaudio-plugin, xfce4-weather-plugin, xfce4-genmon-plugin, devilspie2, curl
+Conflicts: desktop-base
+Section: x11
+Priority: optional
+Homepage: https://github.com/maospy/Maospix-XFCE
+Description: Identidad visual y configuración por defecto de maospix-xfce
+ Tema GTK/xfwm4 Maospix-Dark (basado en Orchis), íconos Papirus-Dark con
+ carpetas cian, cursor Bibata, wallpapers maospix, panel superior + dock,
+ kitty, fish + fastfetch con el logo maospix y greeter de LightDM.

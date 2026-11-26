@@ -1,0 +1,7 @@
+[org.gnome.desktop.interface]
+color-scheme='prefer-dark'
+gtk-theme='Maospix-Dark'
+icon-theme='Maospix-Papirus-Dark'
+cursor-theme='Bibata-Modern-Ice'
+font-name='Inter 10'
+monospace-font-name='JetBrains Mono 10'

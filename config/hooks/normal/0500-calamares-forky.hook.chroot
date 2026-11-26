@@ -1,0 +1,5 @@
+#!/bin/sh
+# calamares-settings-debian trae el repo de la ISO fijo en "trixie"; nuestra base es forky.
+set -e
+sed -i 's/^RELEASE="trixie"/RELEASE="forky"/' /usr/share/calamares/helpers/calamares-sources-media
+grep -q '^RELEASE="forky"' /usr/share/calamares/helpers/calamares-sources-media

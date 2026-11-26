@@ -1,0 +1,22 @@
+#!/bin/bash
+# maospix-xfce — primer inicio de sesión: copia los fondos maospix a ~/Imágenes/Fondos
+# y apunta el escritorio ahí, para que cada usuario tenga sus fondos en su carpeta.
+# Corre una sola vez por usuario (marca en ~/.config/maospix/fondos-copiados).
+MARCA="$HOME/.config/maospix/fondos-copiados"
+[ -f "$MARCA" ] && exit 0
+ORIG=/usr/share/backgrounds/maospix
+
+xdg-user-dirs-update 2>/dev/null
+IMG=$(xdg-user-dir PICTURES 2>/dev/null)
+[ -n "$IMG" ] && [ "$IMG" != "$HOME" ] || IMG="$HOME/Imágenes"
+DEST="$IMG/Fondos"
+mkdir -p "$DEST"
+cp -n "$ORIG"/*.png "$DEST"/ || exit 1
+
+# Cambiar solo los fondos que apuntan a la carpeta del sistema
+xfconf-query -c xfce4-desktop -l 2>/dev/null | grep '/last-image$' | while read -r p; do
+  v=$(xfconf-query -c xfce4-desktop -p "$p")
+  case "$v" in "$ORIG"/*) xfconf-query -c xfce4-desktop -p "$p" -s "$DEST/$(basename "$v")";; esac
+done
+
+mkdir -p "$(dirname "$MARCA")" && touch "$MARCA"

@@ -1,0 +1,13 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=Instalar maospix
+GenericName=Instalador del sistema
+Comment=Instalar maospix XFCE en el disco
+Exec=calamares-install-debian
+Icon=maospix
+Terminal=false
+Categories=System;
+Keywords=calamares;instalar;install;maospix;debian;
+StartupWMClass=calamares
+StartupNotify=true

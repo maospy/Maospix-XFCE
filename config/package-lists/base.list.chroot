@@ -1,0 +1,16 @@
+# Base live mínima (Paso 2: arranque a consola)
+live-boot
+live-config
+live-config-systemd
+systemd-sysv
+user-setup
+sudo
+locales
+keyboard-configuration
+console-setup
+network-manager
+ca-certificates
+nano
+less
+bash-completion
+firmware-linux-free

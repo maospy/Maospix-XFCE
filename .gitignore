@@ -1,0 +1,23 @@
+# Artefactos de live-build
+build/
+cache/
+chroot/
+binary/
+.build/
+*.iso
+*.img
+*.contents
+*.files
+*.packages
+*.log
+out/
+capturas-*/
+
+# Paquete generado
+packages/.cache/
+config/packages.chroot/*.deb
+
+# Privado: notas con datos personales, fotos de pruebas e instrucciones para la IA (no se publican)
+docs/privado/
+CLAUDE.md
+AGENTS.md

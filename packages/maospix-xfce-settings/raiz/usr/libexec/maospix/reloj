@@ -1,0 +1,4 @@
+#!/bin/sh
+# Reloj del panel (xfce4-genmon-plugin). Clic: pronóstico del tiempo.
+printf '<txt> %s </txt><txtclick>maospix-clima</txtclick><tool>%s\nClic: pronóstico del tiempo</tool>' \
+  "$(date '+%a %d %b    %H:%M')" "$(date '+%A %d de %B de %Y')"

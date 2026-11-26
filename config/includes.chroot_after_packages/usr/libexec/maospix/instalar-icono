@@ -1,0 +1,27 @@
+#!/bin/sh
+# Pone "Instalar maospix" en el escritorio del live, ya marcado como confiable
+# (sin el aviso "lanzador no confiable" de XFCE). En el sistema instalado se borra.
+grep -qw 'boot=live' /proc/cmdline || exit 0
+
+# Crear ~/Escritorio antes de preguntar su nombre (el autostart de xdg-user-dirs puede ir después)
+xdg-user-dirs-update 2>/dev/null
+DESK=$(xdg-user-dir DESKTOP 2>/dev/null)
+[ -n "$DESK" ] && [ "$DESK" != "$HOME" ] || DESK="$HOME/Escritorio"
+mkdir -p "$DESK"
+
+F="$DESK/instalar-maospix.desktop"
+install -m 755 /usr/share/applications/maospix-instalar.desktop "$F"
+
+# XFCE confía en un lanzador si es ejecutable y su suma está guardada en los metadatos de gvfs.
+# gvfsd-metadata puede tardar en arrancar al iniciar sesión: reintentar unos segundos.
+SUMA=$(sha256sum "$F" | cut -d' ' -f1)
+i=0
+while [ $i -lt 15 ]; do
+  if gio set -t string "$F" metadata::xfce-exe-checksum "$SUMA" 2>/dev/null &&
+     gio set -t string "$F" metadata::trusted true 2>/dev/null &&
+     gio info -a metadata::xfce-exe-checksum "$F" 2>/dev/null | grep -q "$SUMA"; then
+    break
+  fi
+  i=$((i + 1)); sleep 1
+done
+touch "$F"   # que xfdesktop lo vuelva a leer ya confiable

@@ -1,0 +1,12 @@
+#!/bin/sh
+# Instalador: usar el lanzador "Instalar maospix" (includes.chroot_after_packages) en vez del de Debian.
+set -e
+# El ícono de Debian iba a ~/Desktop aunque el escritorio sea ~/Escritorio → quedaba "no confiable"
+rm -f /etc/xdg/autostart/calamares-desktop-icon.desktop
+# Ocultar "Install Debian" del menú (queda "Instalar maospix")
+grep -q '^NoDisplay=true' /usr/share/applications/calamares-install-debian.desktop ||
+  echo 'NoDisplay=true' >> /usr/share/applications/calamares-install-debian.desktop
+# Comprobar que nuestra configuración quedó encima de la de Debian
+grep -q '^branding: maospix' /etc/calamares/settings.conf
+grep -q 'RELEASE="forky"' /usr/share/calamares/helpers/calamares-sources-final
+test -x /usr/libexec/maospix/instalar-icono

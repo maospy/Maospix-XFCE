@@ -1,0 +1,57 @@
+# Paso 3: escritorio XFCE + LightDM (sin recommends: todo explícito)
+# --- Gráficos (mesa + vulkan: intel/radeon/nouveau; sin nvidia propietario)
+xorg
+xserver-xorg-video-all
+libgl1-mesa-dri
+mesa-vulkan-drivers
+dbus-x11
+# --- XFCE 4.20
+xfce4
+kitty
+fastfetch
+xfce4-whiskermenu-plugin
+xfce4-pulseaudio-plugin
+xfce4-xkb-plugin
+xfce4-notifyd
+xfce4-power-manager
+xfce4-screenshooter
+xfce4-taskmanager
+xfce-polkit
+thunar-archive-plugin
+thunar-volman
+gvfs
+gvfs-backends
+udisks2
+xdg-user-dirs
+xdg-user-dirs-gtk
+adwaita-icon-theme
+fonts-noto-core
+fonts-dejavu
+# --- Login
+lightdm
+lightdm-gtk-greeter
+lightdm-gtk-greeter-settings
+light-locker
+# --- Red, audio, bluetooth
+network-manager-applet
+pipewire-audio
+wireplumber
+# sin esto PipeWire/WirePlumber no arrancan en la sesión (prueba10: sin sonido en PC real)
+dbus-user-session
+alsa-utils
+pulseaudio-utils
+pavucontrol
+bluez
+blueman
+# --- Apps
+brave-browser
+mousepad
+ristretto
+mpv
+file-roller
+gnome-disk-utility
+# --- Herramientas (como en la PC de construcción)
+btop
+htop
+curl
+wget

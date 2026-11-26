@@ -1,0 +1,9 @@
+[user]
+pinned=/usr/share/applications/thunar.desktop;/usr/share/applications/brave-browser.desktop;/usr/share/applications/kitty.desktop;/usr/share/applications/org.xfce.mousepad.desktop;/usr/share/applications/xfce-settings-manager.desktop;
+indicatorOrientation=0
+indicatorStyle=1
+inactiveIndicatorStyle=1
+indicatorColorFromTheme=false
+customIndicatorColors=true
+indicatorColor=rgb(79,216,232)
+inactiveColor=rgb(179,147,245)

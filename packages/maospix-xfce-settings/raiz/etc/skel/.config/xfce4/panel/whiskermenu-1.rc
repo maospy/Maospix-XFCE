@@ -1,0 +1,13 @@
+button-icon=maospix
+button-title=maospix
+show-button-title=false
+show-button-icon=true
+launcher-show-name=true
+launcher-show-description=false
+category-icon-size=1
+item-icon-size=2
+position-search-alternate=true
+position-commands-alternate=false
+menu-width=520
+menu-height=560
+favorites=brave-browser.desktop,thunar.desktop,kitty.desktop,org.xfce.mousepad.desktop,xfce-settings-manager.desktop

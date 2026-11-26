@@ -1,0 +1,8 @@
+#!/bin/sh
+# tzdata moderno ignora /etc/timezone y usa debconf: live-config lo dejaba en UTC.
+set -e
+printf 'tzdata tzdata/Areas select America\ntzdata tzdata/Zones/America select Asuncion\n' | debconf-set-selections
+echo America/Asuncion > /etc/timezone
+ln -sf /usr/share/zoneinfo/America/Asuncion /etc/localtime
+dpkg-reconfigure -f noninteractive tzdata
+readlink /etc/localtime | grep -q Asuncion
