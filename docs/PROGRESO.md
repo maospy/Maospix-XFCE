@@ -14,7 +14,7 @@ Hecho:
 - Sonido con PipeWire + WirePlumber (incluye `dbus-user-session`).
 - `tools/verificar-iso.sh`: 100 controles automáticos sobre el contenido de la ISO.
 
-## Pendiente (próximas versiones)
+## Ideas para próximas versiones (opcional)
 1. Plymouth con tema maospix y GRUB tematizado en el sistema instalado (hoy arranca en texto).
 2. Flatpak + Flathub preconfigurado.
 3. Medir y recortar RAM en reposo (objetivo < 700 MB) y firmware/paquetes de sobra.
